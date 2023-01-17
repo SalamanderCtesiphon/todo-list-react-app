@@ -23,15 +23,7 @@ export class App extends Component {
 
   }
 
-  handleChange = (e) => {
-    this.setState({
-      task: {
-        text: e.target.value,
-        id: this.state.task.id,
-        position: this.state.task.position,
-      }
-    })
-  }
+  handleChange = (e) => this.setState({ [e.target.name]: e.target.value });  
 
   onSubmit = (e) => {
     e.preventDefault();
@@ -52,7 +44,7 @@ export class App extends Component {
   }
 
   render() {
-    const { task, tasks, id } = this.state;
+    const { task, tasks } = this.state;
 
     return (
       <div className='App'>
@@ -69,7 +61,7 @@ export class App extends Component {
             ></input>{'     '}
             <button type='submit'>Add Task</button>
           </form>
-          <Overview tasks={tasks} delTask={this.delTask} id={task.id}/>
+          <Overview tasks={tasks} delTask={this.delTask} id={task.id} />
         </div>
       </div>
     )

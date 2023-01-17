@@ -1,19 +1,16 @@
 import React, { Component } from 'react'
 
 class Overview extends Component {
-  constructor(props) {
-    super(props);
-  }
-
+  
   render() {
-    const { tasks, id } = this.props;
+    const { tasks } = this.props;
 
     return (
       <ul>
         {tasks.map((task) => {
           return <li key={task.id}>
                   <div>{task.position}.{' '}{task.text}</div>
-                  <button onClick={this.props.delTask.bind(this, id)}>Remove</button>
+                  <button onClick={this.props.delTask}>Remove</button>
               </li>;
         })}
       </ul>
