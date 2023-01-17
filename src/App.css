@@ -30,3 +30,10 @@ form {
   font-size: larger;
 }
 
+ul {
+  list-style: none;
+  padding: 10px;
+  margin: 10px;
+  font-size: larger;
+}
+
