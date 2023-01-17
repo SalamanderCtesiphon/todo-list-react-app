@@ -19,6 +19,7 @@ export class App extends Component {
     }
 
     this.delTask = this.delTask.bind(this);
+    this.handleChange = this.handleChange.bind(this);
 
   }
 
@@ -51,7 +52,7 @@ export class App extends Component {
   }
 
   render() {
-    const { task, tasks } = this.state;
+    const { task, tasks, id } = this.state;
 
     return (
       <div className='App'>
@@ -68,7 +69,7 @@ export class App extends Component {
             ></input>{'     '}
             <button type='submit'>Add Task</button>
           </form>
-          <Overview tasks={tasks} delTask={this.delTask} id={this.id}/>
+          <Overview tasks={tasks} delTask={this.delTask} id={task.id}/>
         </div>
       </div>
     )

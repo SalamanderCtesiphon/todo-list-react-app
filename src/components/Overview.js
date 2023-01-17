@@ -6,14 +6,14 @@ class Overview extends Component {
   }
 
   render() {
-    const { tasks } = this.props;
+    const { tasks, id } = this.props;
 
     return (
       <ul>
         {tasks.map((task) => {
           return <li key={task.id}>
                   <div>{task.position}.{' '}{task.text}</div>
-                  <button onClick={this.props.delTask}>Remove</button>
+                  <button onClick={this.props.delTask.bind(this, id)}>Remove</button>
               </li>;
         })}
       </ul>
