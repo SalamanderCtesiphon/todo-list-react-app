@@ -17,13 +17,17 @@ export class App extends Component {
       },
       tasks: [],
     }
-
-    this.delTask = this.delTask.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-
   }
 
-  handleChange = (e) => this.setState({ [e.target.name]: e.target.value });  
+  handleChange = (e) => {
+    this.setState({
+      task: {
+        text: e.target.value,
+        id: this.state.task.id,
+        position: this.state.task.position,
+      }
+    })
+  }
 
   onSubmit = (e) => {
     e.preventDefault();
@@ -38,9 +42,8 @@ export class App extends Component {
   }
 
   delTask = (id) => {
-    this.setState({
-      tasks: [...this.state.tasks.filter(task => task.id !== id)]
-    })
+    this.setState({ 
+      tasks: [...this.state.tasks.filter(task => task.id !==id)]})
   }
 
   render() {
@@ -61,7 +64,10 @@ export class App extends Component {
             ></input>{'     '}
             <button type='submit'>Add Task</button>
           </form>
-          <Overview tasks={tasks} delTask={this.delTask} id={task.id} />
+          <Overview 
+            tasks={tasks} 
+            delTask={this.delTask} 
+          />
         </div>
       </div>
     )
