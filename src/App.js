@@ -68,7 +68,7 @@ export class App extends Component {
             ></input>{'     '}
             <button type='submit'>Add Task</button>
           </form>
-          <Overview tasks={tasks} delTask={this.delTask}/>
+          <Overview tasks={tasks} delTask={this.delTask} id={this.id}/>
         </div>
       </div>
     )
