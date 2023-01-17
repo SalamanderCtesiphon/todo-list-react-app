@@ -11,11 +11,15 @@ export class App extends Component {
 
     this.state = {
       task: { 
-        id: '',
+        id: uniqid(),
         text: '',
+        position: 1,
       },
       tasks: [],
     }
+
+    this.delTask = this.delTask.bind(this);
+
   }
 
   handleChange = (e) => {
@@ -23,6 +27,7 @@ export class App extends Component {
       task: {
         text: e.target.value,
         id: this.state.task.id,
+        position: this.state.task.position,
       }
     })
   }
@@ -34,7 +39,14 @@ export class App extends Component {
       task: { 
         id: uniqid(),
         text: '',
+        position: this.state.task.position + 1,
       },
+    })
+  }
+
+  delTask = (id) => {
+    this.setState({
+      tasks: [...this.state.tasks.filter(task => task.id !== id)]
     })
   }
 
@@ -56,7 +68,7 @@ export class App extends Component {
             ></input>{'     '}
             <button type='submit'>Add Task</button>
           </form>
-          <Overview tasks={tasks} />
+          <Overview tasks={tasks} delTask={this.delTask}/>
         </div>
       </div>
     )
