@@ -18,10 +18,11 @@ h1 {
   color: antiquewhite;
   padding: 10px;
   margin-bottom: 2vh;
-  width: 22vw;
+  width: 30vw;
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 10px;
 }
 
 form {
@@ -35,6 +36,7 @@ ul {
   padding: 10px;
   margin: 10px;
   font-size: larger;
+  width: 30vw;
 }
 
 li {
@@ -43,8 +45,16 @@ li {
   margin: 10px;
   padding: 6px;
   border: 1px solid gray;
+  border-radius: 10px;
+  box-shadow: 8px 7px 5px rgba(47, 43, 43, 0.432);
 }
 
 button {
   padding: 4px;
+}
+
+.btnBox {
+  display: flex;
+  justify-content: space-between;
+  width: 5vw;
 }
