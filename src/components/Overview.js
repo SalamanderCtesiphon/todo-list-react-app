@@ -14,10 +14,9 @@ class Overview extends Component {
                   <div className='btnBox'>
                     <button onClick={this.props.delTask.bind(this, task.id)}
                     >Delete</button>
-                    <button onClick={this.props.alterTask.bind(this, task.id)}
-                    >Edit</button>
+                    <button>...</button>
                   </div>
-              </li>;
+                 </li>;
         })}
       </ul>
     );

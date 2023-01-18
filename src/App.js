@@ -43,10 +43,6 @@ export class App extends Component {
       tasks: [...this.state.tasks.filter(task => task.id !==id)]})
   }
 
-  alterTask = (id) => {
-    console.log(id);
-  }
-
   render() {
     const { task, tasks, id } = this.state;
 
