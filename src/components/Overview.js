@@ -4,14 +4,14 @@ import PropTypes from 'prop-types'
 class Overview extends Component {
   
   render() {
-    const { tasks, id, task } = this.props;
+    const { tasks } = this.props;
 
     return (
       <ul>
         {tasks.map((task) => {
           return <li key={task.id}>
                   <div>{task.position}.{' '}{task.text}</div>
-                  <button onClick={this.props.delTask.bind(this, id)}
+                  <button onClick={this.props.delTask.bind(this, task.id)}
                   >Remove</button>
               </li>;
         })}

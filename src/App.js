@@ -47,7 +47,7 @@ export class App extends Component {
   }
 
   render() {
-    const { task, tasks } = this.state;
+    const { task, tasks, id } = this.state;
 
     return (
       <div className='App'>
@@ -68,6 +68,7 @@ export class App extends Component {
             tasks={tasks} 
             delTask={this.delTask} 
             task = {task}
+            id={id}
           />
         </div>
       </div>
