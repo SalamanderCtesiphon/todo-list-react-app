@@ -13,7 +13,6 @@ export class App extends Component {
       task: { 
         id: uniqid(),
         text: '',
-        position: 1,
       },
       tasks: [],
     }
@@ -24,7 +23,6 @@ export class App extends Component {
       task: {
         text: e.target.value,
         id: this.state.task.id,
-        position: this.state.task.position,
       }
     })
   }
@@ -36,7 +34,6 @@ export class App extends Component {
       task: { 
         id: uniqid(),
         text: '',
-        position: this.state.task.position + 1,
       },
     })
   }
@@ -60,7 +57,7 @@ export class App extends Component {
               value={task.text}
               type="text" 
               id='taskInput'
-              placeholder='New task ...'
+              placeholder='Input task ...'
             ></input>{'     '}
             <button type='submit'>Add Task</button>
           </form>

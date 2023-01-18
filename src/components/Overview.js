@@ -10,7 +10,7 @@ class Overview extends Component {
       <ul>
         {tasks.map((task) => {
           return <li key={task.id}>
-                  <div>{task.position}.{' '}{task.text}</div>
+                  <div>{(tasks.indexOf(task) + 1 )}.{' '}{task.text}</div>
                   <button onClick={this.props.delTask.bind(this, task.id)}
                   >Remove</button>
               </li>;
