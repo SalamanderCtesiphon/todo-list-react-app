@@ -67,6 +67,7 @@ export class App extends Component {
           <Overview 
             tasks={tasks} 
             delTask={this.delTask} 
+            task = {task}
           />
         </div>
       </div>
