@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 
 export class TaskItem extends Component {
+
   render() {
     const { tasks, task } = this.props;
+    
     return (
         <li key={task.id}>
         <div>{(tasks.indexOf(task) + 1 )}.{' '}{task.text}</div>
