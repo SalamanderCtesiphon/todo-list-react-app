@@ -43,8 +43,8 @@ export class App extends Component {
       tasks: [...this.state.tasks.filter(task => task.id !==id)]})
   }
 
-  handleEdit = (id) => {
-    console.log(id)
+  editTask = (id) => {
+    console.log('hi')
   }
 
   render() {
@@ -67,10 +67,10 @@ export class App extends Component {
           </form>
           <Overview 
             tasks={tasks} 
-            delTask={this.delTask} 
-            handleEdit={this.handleEdit}
             task = {task}
             id={id}
+            delTask={this.delTask} 
+            editTask={this.editTask}
           />
         </div>
       </div>

@@ -13,7 +13,7 @@ class Overview extends Component {
                   <div className='btnBox'>
                     <button onClick={this.props.delTask.bind(this, task.id)}
                     >Delete</button>
-                    <button onClick={this.props.handleEdit(this, task.id)}>Edit</button>
+                    <button onClick={this.props.editTask.bind(this, task.id)}>Edit</button>
                   </div>
                  </li>;
         })}
