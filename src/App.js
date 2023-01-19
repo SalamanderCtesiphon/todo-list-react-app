@@ -44,7 +44,7 @@ export class App extends Component {
   }
 
   editTask = (id) => {
-    console.log('hi')
+    alert('We are working on the edit feature for this application and hope to be able to implement it soon.')
   }
 
   render() {

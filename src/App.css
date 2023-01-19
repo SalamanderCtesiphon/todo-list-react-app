@@ -51,6 +51,7 @@ li {
 
 button {
   padding: 4px;
+  max-height: 29px;
 }
 
 .btnBox {
