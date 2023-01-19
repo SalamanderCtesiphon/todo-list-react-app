@@ -18,13 +18,13 @@ export class App extends Component {
       tasks: [],
     }
   }
-
+  
   handleChange = (e) => {
     this.setState({
       task: {
         text: e.target.value,
         id: this.state.task.id,
-        edit: this.state.task.edit,
+        edit: false,
       }
     })
   }
@@ -36,7 +36,7 @@ export class App extends Component {
       task: { 
         id: uniqid(),
         text: '',
-        edit: this.state.task.edit,
+        edit: false,
       },
     })
   }
@@ -47,16 +47,9 @@ export class App extends Component {
   }
 
   editTask = (id) => {
-    this.setState({
-      tasks: this.state.tasks,
-      task: {
-        id:this.state.task.id,
-        text: this.state.task.text,
-        edit: !this.state.task.edit,
-      }
-      })
-    
+    console.log(id)
   }
+ 
 
   render() {
     const { task, tasks, id, edit } = this.state;
