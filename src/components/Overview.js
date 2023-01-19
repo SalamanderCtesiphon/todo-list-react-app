@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 
 class Overview extends Component {
   
@@ -24,9 +23,5 @@ class Overview extends Component {
 
   
 };
-
-Overview.propTypes = {
-  task: PropTypes.object.isRequired
-}
 
 export default Overview;
