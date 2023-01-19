@@ -44,9 +44,7 @@ export class App extends Component {
   }
 
   editTask = (id) => {
-    return (
-      <div>hi</div>
-    )
+    console.log('hi')
   }
 
   render() {
