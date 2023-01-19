@@ -13,6 +13,7 @@ export class App extends Component {
       task: { 
         id: uniqid(),
         text: '',
+        edit: false,
       },
       tasks: [],
     }
@@ -23,6 +24,7 @@ export class App extends Component {
       task: {
         text: e.target.value,
         id: this.state.task.id,
+        edit: this.state.task.edit,
       }
     })
   }
@@ -34,6 +36,7 @@ export class App extends Component {
       task: { 
         id: uniqid(),
         text: '',
+        edit: this.state.task.edit,
       },
     })
   }
@@ -44,11 +47,19 @@ export class App extends Component {
   }
 
   editTask = (id) => {
-    alert('We are working on the edit feature for this application and hope to be able to implement it soon.')
+    this.setState({
+      tasks: this.state.tasks,
+      task: {
+        id:this.state.task.id,
+        text: this.state.task.text,
+        edit: !this.state.task.edit,
+      }
+      })
+    
   }
 
   render() {
-    const { task, tasks, id } = this.state;
+    const { task, tasks, id, edit } = this.state;
 
     return (
       <div className='App'>
@@ -69,6 +80,7 @@ export class App extends Component {
             tasks={tasks} 
             task = {task}
             id={id}
+            edit={edit}
             delTask={this.delTask} 
             editTask={this.editTask}
           />
