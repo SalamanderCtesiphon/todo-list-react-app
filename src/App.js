@@ -43,6 +43,10 @@ export class App extends Component {
       tasks: [...this.state.tasks.filter(task => task.id !==id)]})
   }
 
+  handleEdit = (id) => {
+    console.log(id)
+  }
+
   render() {
     const { task, tasks, id } = this.state;
 
@@ -64,9 +68,9 @@ export class App extends Component {
           <Overview 
             tasks={tasks} 
             delTask={this.delTask} 
+            handleEdit={this.handleEdit}
             task = {task}
             id={id}
-            alterTask={this.alterTask}
           />
         </div>
       </div>
