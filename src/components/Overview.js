@@ -4,12 +4,12 @@ import TaskItem from './TaskItem';
 class Overview extends Component {
   
   render() {
-    const { tasks, task } = this.props;
+    const { tasks, task, id } = this.props;
 
-    if (tasks.length == 0) {
+    if (tasks.length === 0) {
       return (
         <ul>
-          <li>All tasks are completed. 
+          <li key={task.id}>All tasks are completed. 
           </li>
         </ul>
       )
@@ -17,7 +17,9 @@ class Overview extends Component {
       return (
         <ul>
           {tasks.map((task) => {
-              return <TaskItem tasks={tasks} task={task} 
+              return <TaskItem tasks={tasks} task={task}
+              key={task.id} 
+              id={id}
               delTask={this.props.delTask}
               editTask={this.props.editTask}/>
             
