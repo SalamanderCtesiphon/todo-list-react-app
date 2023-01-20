@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
 
 export class TaskItem extends Component {
+  constructor(props) {
+    super(props);
+    this.editTask = this.editTask.bind(this);
+  }
 
   editTask = (id) => {
     this.setState({
       task: { 
-        text: this.props.task.text,
-        id: this.props.task.id,
         edit: true,
       },
     })

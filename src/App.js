@@ -24,7 +24,7 @@ export class App extends Component {
       task: {
         text: e.target.value,
         id: this.state.task.id,
-        edit: false,
+        edit: this.state.task.edit,
       }
     })
   }
