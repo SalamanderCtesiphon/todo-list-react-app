@@ -9,7 +9,8 @@ class Overview extends Component {
     if (tasks.length == 0) {
       return (
         <ul>
-          <li>No more tasks for now ...</li>
+          <li>All tasks are completed. 
+          </li>
         </ul>
       )
     } else {

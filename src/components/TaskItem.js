@@ -2,6 +2,19 @@ import React, { Component } from 'react'
 
 export class TaskItem extends Component {
 
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      task: { 
+        id: this.props.id,
+        text: this.props.text,
+        edit: this.props.edit,
+      },
+      tasks: [],
+    }
+  }
+
   render() {
     const { tasks, task } = this.props;
     
