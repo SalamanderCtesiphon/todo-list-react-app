@@ -59,15 +59,16 @@ export class App extends Component {
         <Header />
         <div className='inputForm'>
           <form onSubmit={this.onSubmit}>
-            <label htmlFor='taskInput'>Enter New Task: </label>
+            <label className="formItem" htmlFor='taskInput'>Enter New Task: </label>
             <input 
+              className="formItem" 
               onChange={this.handleChange}
               value={task.text}
               type="text" 
               id='taskInput'
               placeholder='Input task ...'
             ></input>{'     '}
-            <button type='submit'>Add Task</button>
+            <button className="formItem" type='submit'>Add Task</button>
           </form>
           <Overview 
             tasks={tasks} 

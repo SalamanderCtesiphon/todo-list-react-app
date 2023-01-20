@@ -18,7 +18,7 @@ h1 {
   color: antiquewhite;
   padding: 10px;
   margin-bottom: 2vh;
-  width: 30vw;
+  width: 40vw;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -29,6 +29,9 @@ form {
   margin: 10px;
   padding: 10px;
   font-size: larger;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 ul {
@@ -36,7 +39,7 @@ ul {
   padding: 10px;
   margin: 10px;
   font-size: larger;
-  width: 30vw;
+  width: 40vw;
 }
 
 li {
@@ -57,5 +60,15 @@ button {
 .btnBox {
   display: flex;
   justify-content: space-between;
-  width: 5vw;
+  width: 6vw;
+  margin: 4px;
+}
+
+input {
+  width: 20vw;
+  height: 20px;
+}
+
+.formItem {
+  margin: 6px;
 }
