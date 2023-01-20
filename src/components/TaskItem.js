@@ -2,33 +2,37 @@ import React, { Component } from 'react'
 
 export class TaskItem extends Component {
 
-  constructor(props) {
-    super(props)
-
-    this.state = {
+  editTask = (id) => {
+    this.setState({
       task: { 
-        id: this.props.id,
-        text: this.props.text,
-        edit: this.props.edit,
+        text: this.props.task.text,
+        id: this.props.task.id,
+        edit: true,
       },
-      tasks: [],
-    }
+    })
+    console.log(this.props.task)
   }
 
   render() {
     const { tasks, task } = this.props;
-    
-    return (
+
+    if (task.edit ===true) {
+      return(
+        <li key={task.id}>You did it</li>                
+      )
+    } else {
+      return (
         <li key={task.id}>
         <div>{(tasks.indexOf(task) + 1 )}.{' '}{task.text}</div>
         <div className='btnBox'>
           <button onClick={this.props.delTask.bind(this, task.id)}
           >Delete</button>
-          <button onClick={this.props.editTask.bind(this, task.id)}>Edit</button>
+          <button onClick={this.editTask.bind(this, task.id)}>Edit</button>
         </div>
         </li>
     )
   }
+    }
 }
 
 export default TaskItem
