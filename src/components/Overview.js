@@ -22,8 +22,9 @@ class Overview extends Component {
               id={id}
               edit={this.props.task.edit}
               delTask={this.props.delTask}
-              editTask={this.props.editTask}/>
-            
+              editTask={this.props.editTask}
+              handleChange={this.props.handleChange}
+              />
           })}
         </ul>
       );

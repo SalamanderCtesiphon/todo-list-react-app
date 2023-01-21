@@ -46,6 +46,17 @@ export class App extends Component {
       tasks: [...this.state.tasks.filter(task => task.id !==id)]})
   } 
 
+  editTask = (id) => {
+    this.setState({
+      tasks: this.state.tasks.map(task => {
+        if (task.id === id) {
+          task.edit = !task.edit
+        }
+        return task;
+      })
+    })
+  }
+
   render() {
     const { task, tasks, id } = this.state;
 
@@ -71,6 +82,8 @@ export class App extends Component {
             id={id}
             edit={this.state.task.edit}
             delTask={this.delTask} 
+            editTask={this.editTask}
+            handleChange={this.handleChange}
           />
         </div>
       </div>
