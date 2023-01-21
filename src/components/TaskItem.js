@@ -8,7 +8,7 @@ export class TaskItem extends Component {
       task: { 
         id: this.props.task.id,
         text: this.props.task.text,
-        edit: false,
+        edit: this.props.task.edit,
       },
       tasks: [],
     }
@@ -17,7 +17,13 @@ export class TaskItem extends Component {
   onResubmit = (id) => {
     this.setState({
       tasks:  this.state.tasks.concat(this.state.task),
+      task: {
+        text: this.state.task.text,
+        id: this.state.task.id,
+        edit: false,
+      },
     })
+    console.log(this.state.task)
   }
 
   rehandleChange = (e) => {

@@ -55,6 +55,7 @@ export class App extends Component {
         return task;
       })
     })
+    console.log(this.state.task)
   }
 
   render() {
