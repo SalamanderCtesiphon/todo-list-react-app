@@ -57,6 +57,16 @@ export class App extends Component {
     })
   }
 
+
+  rehandleChange = (e) => {
+    this.setState({
+      task: {
+        text: e.target.value,
+        id: this.state.task.id,
+        edit: this.state.task.edit,
+      }
+    })
+  }
   
 
   render() {
@@ -79,13 +89,13 @@ export class App extends Component {
             <button className="formItem" type='submit'>Add Task</button>
           </form>
           <Overview 
-            tasks={tasks} 
-            task = {task}
+            tasks={this.state.tasks} 
+            task = {this.state.task}
             id={id}
             edit={this.state.task.edit}
             delTask={this.delTask} 
             editTask={this.editTask}
-            handleChange={this.handleChange}
+            rehandleChange={this.rehandleChange}
           />
         </div>
       </div>

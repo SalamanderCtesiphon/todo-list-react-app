@@ -1,18 +1,6 @@
 import React, { Component } from 'react'
 
 export class TaskItem extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      task: { 
-        id: this.props.task.id,
-        text: this.props.task.text,
-        edit: this.props.task.edit,
-      },
-      tasks: this.props.tasks,
-    }
-  }
 
   onResubmit = (id) => {
     this.setState({
@@ -21,19 +9,16 @@ export class TaskItem extends Component {
           task.edit = !task.edit
       }
         return task;
-      })
-    })
-  }
-
-  rehandleChange = (e) => {
-    this.setState({
+      }),
       task: {
-        text: e.target.value,
+        text: this.props.task.text,
         id: this.props.task.id,
-        edit: !this.props.task.edit,
+        edit: this.props.task.edit,
       }
     })
   }
+
+ 
 
   render() {
     const { tasks, task } = this.props;
@@ -43,8 +28,8 @@ export class TaskItem extends Component {
         <li key={task.id}>
           {(tasks.indexOf(task) + 1 )}.{' '}
             <input 
-              onChange={this.rehandleChange}
-              value={this.state.task.text}
+              onChange={this.props.rehandleChange}
+              value={this.props.task.text}
               type="text" 
               id='taskInput'
               placeholder={task.text}
@@ -52,7 +37,7 @@ export class TaskItem extends Component {
             <div >
               <button onClick={this.props.delTask.bind(this, task.id)}
                 >Delete</button>
-              <button onClick={this.onResubmit}>Add Task</button>
+              <button onClick={this.onResubmit.bind(this, task.id)}>Add Task</button>
             </div>
         </li>                
       )

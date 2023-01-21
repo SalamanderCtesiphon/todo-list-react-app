@@ -23,7 +23,7 @@ class Overview extends Component {
               edit={this.props.task.edit}
               delTask={this.props.delTask}
               editTask={this.props.editTask}
-              handleChange={this.props.handleChange}
+              rehandleChange={this.props.rehandleChange}
               />
           })}
         </ul>
