@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import uniqid from 'uniqid'
 
 export class TaskItem extends Component {
   constructor(props) {
@@ -17,15 +16,13 @@ export class TaskItem extends Component {
 
   onResubmit = (id) => {
     this.setState({
-      tasks: this.state.tasks.map(task => {
+      tasks: this.props.tasks.map(task => {
         if (task.id === id) {
           task.edit = !task.edit
-        }
+      }
         return task;
-      }),
-      task: this.props.task,
+      })
     })
-    console.log(this.props.task)
   }
 
   rehandleChange = (e) => {
@@ -33,10 +30,9 @@ export class TaskItem extends Component {
       task: {
         text: e.target.value,
         id: this.props.task.id,
-        edit: this.props.task.edit,
+        edit: !this.props.task.edit,
       }
     })
-    console.log(this.props.task)
   }
 
   render() {

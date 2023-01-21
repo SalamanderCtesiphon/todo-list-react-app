@@ -27,7 +27,6 @@ export class App extends Component {
         edit: this.state.task.edit,
       }
     })
-    console.log(this.state.task)
   }
 
   onSubmit = (e) => {
@@ -40,7 +39,6 @@ export class App extends Component {
         edit: false,
       },
     })
-    console.log(this.state.task)
   }
 
   delTask = (id) => {
@@ -57,8 +55,9 @@ export class App extends Component {
         return task;
       })
     })
-    console.log(this.state.task)
   }
+
+  
 
   render() {
     const { task, tasks, id } = this.state;
