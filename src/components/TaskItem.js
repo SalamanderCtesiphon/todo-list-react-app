@@ -11,23 +11,19 @@ export class TaskItem extends Component {
         text: this.props.task.text,
         edit: this.props.task.edit,
       },
-      tasks: [],
+      tasks: this.props.tasks,
     }
   }
 
   onResubmit = (id) => {
     this.setState({
-      tasks: this.props.tasks.map(task => {
+      tasks: this.state.tasks.map(task => {
         if (task.id === id) {
-          task.edit = false;
+          task.edit = !task.edit
         }
         return task;
       }),
-      task: { 
-        id: uniqid(),
-        text: '',
-        edit: false,
-      },
+      task: this.props.task,
     })
     console.log(this.props.task)
   }
