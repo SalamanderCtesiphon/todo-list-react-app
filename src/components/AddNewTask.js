@@ -1,7 +1,8 @@
-import React from "react";
+import React, { Component } from "react";
+import Overview from './Overview'
 import uniqid from 'uniqid';
 
-class AddNewTask extends React {
+class AddNewTask extends Component {
 
     constructor(props) {
         super(props);
@@ -27,7 +28,7 @@ class AddNewTask extends React {
       onSubmit = (e) => {
         e.preventDefault();
         this.setState({
-          tasks:  this.state.tasks.concat(this.state.task),
+          tasks:  this.props.tasks.concat(this.state.task),
           task: { 
             id: uniqid(),
             text: '',
@@ -51,6 +52,12 @@ class AddNewTask extends React {
             ></input>{'     '}
             <button className="formItem" type='submit'>Add Task</button>
           </form>
+          <Overview 
+            tasks={this.props.tasks} 
+            task={this.state.task}
+            delTask={this.delTask} 
+            editTask={this.editTask}
+          />
             </div>
         )
     }
