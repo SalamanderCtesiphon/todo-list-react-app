@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Overview from './components/Overview'
 import Header from './components/Header'
 import './App.css'
-import uniqid from 'uniqid'
+import AddNewTask from './components/AddNewTask'
 
 export class App extends Component {
 
@@ -10,36 +10,11 @@ export class App extends Component {
     super(props)
 
     this.state = {
-      task: { 
-        id: uniqid(),
-        text: '',
-        edit: false,
-      },
       tasks: [],
     }
   }
   
-  handleChange = (e) => {
-    this.setState({
-      task: {
-        text: e.target.value,
-        id: this.state.task.id,
-        edit: this.state.task.edit,
-      }
-    })
-  }
-
-  onSubmit = (e) => {
-    e.preventDefault();
-    this.setState({
-      tasks:  this.state.tasks.concat(this.state.task),
-      task: { 
-        id: uniqid(),
-        text: '',
-        edit: false,
-      },
-    })
-  }
+  
 
   delTask = (id) => {
     this.setState({ 
@@ -76,18 +51,7 @@ export class App extends Component {
       <div className='App'>
         <Header />
         <div className='inputForm'>
-          <form onSubmit={this.onSubmit}>
-            <label className="formItem" htmlFor='taskInput'>Enter New Task: </label>
-            <input 
-              className="formItem" 
-              onChange={this.handleChange}
-              value={task.text}
-              type="text" 
-              id='taskInput'
-              placeholder='Input task ...'
-            ></input>{'     '}
-            <button className="formItem" type='submit'>Add Task</button>
-          </form>
+          <AddNewTask />
           <Overview 
             tasks={this.state.tasks} 
             task = {this.state.task}
