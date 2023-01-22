@@ -53,8 +53,8 @@ export class App extends Component {
         <div className='inputForm'>
           <AddNewTask />
           <Overview 
-            tasks={this.state.tasks} 
-            task = {this.state.task}
+            tasks={tasks} 
+            task = {task}
             id={id}
             edit={this.state.task.edit}
             delTask={this.delTask} 
