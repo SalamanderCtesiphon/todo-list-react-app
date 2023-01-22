@@ -25,7 +25,7 @@ export class TaskItem extends Component {
 
     if (task.edit === true) {
       return(
-        <li key={task.id}>
+        <li>
           {(tasks.indexOf(task) + 1 )}.{' '}
             <input 
               onChange={this.props.rehandleChange}
@@ -43,7 +43,7 @@ export class TaskItem extends Component {
       )
     } else {
       return (
-        <li key={task.id}>
+        <li>
         <div>{(tasks.indexOf(task) + 1 )}.{' '}{task.text}</div>
         <div className='btnBox'>
           <button onClick={this.props.delTask.bind(this, task.id)}

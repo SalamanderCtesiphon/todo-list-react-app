@@ -6,13 +6,13 @@ class AddNewTask extends Component {
 
     constructor(props) {
         super(props);
-        this.state= { 
-            task: { 
-            id: uniqid(),
-            text: '',
-            edit: false,
-          },
-        }
+        this.state = { 
+            task: {
+                text: '',
+                edit: false,
+                id: this.id,
+            }
+          }
     }
 
     handleChange = (e) => {
@@ -25,16 +25,20 @@ class AddNewTask extends Component {
         })
       }
     
-      onSubmit = (e) => {
-        e.preventDefault();
-        this.setState({
-          tasks:  this.props.tasks.concat(this.state.task),
-          task: { 
-            id: uniqid(),
-            text: '',
-            edit: false,
-          },
-        })
+    onSubmit = (e) => {
+    e.preventDefault();
+    this.props.addItem(this.state.text);
+    this.setState({
+        task: { 
+        id: uniqid(),
+        text: '',
+        edit: false,
+        },
+    })
+    }
+
+      editTask = (id) => {
+        return null;
       }
 
     render(){
@@ -45,7 +49,7 @@ class AddNewTask extends Component {
             <input 
               className="formItem" 
               onChange={this.handleChange}
-              value={this.state.task.text}
+              value={this.state.text}
               type="text" 
               id='taskInput'
               placeholder='Input task ...'
@@ -55,8 +59,9 @@ class AddNewTask extends Component {
           <Overview 
             tasks={this.props.tasks} 
             task={this.state.task}
-            delTask={this.delTask} 
+            delTask={this.props.delTask} 
             editTask={this.editTask}
+            id={this.state.id}
           />
             </div>
         )

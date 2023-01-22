@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Header from './components/Header'
 import './App.css'
 import AddNewTask from './components/AddNewTask'
+import uniqid from 'uniqid'
 
 export class App extends Component {
 
@@ -9,7 +10,8 @@ export class App extends Component {
     super(props)
 
     this.state = {
-      tasks: [],
+      tasks: [
+      ],
     }
   }
   
@@ -20,6 +22,15 @@ export class App extends Component {
       tasks: [...this.state.tasks.filter(task => task.id !==id)]})
   } 
 
+  addItem = (text) => {
+    const newTask = {
+      id: uniqid(),
+      text,
+      edit: false
+    }
+    this.setState({ tasks: [...this.state.tasks, newTask]})
+  }
+
 
   render() {
     const { tasks } = this.state;
@@ -28,7 +39,11 @@ export class App extends Component {
       <div className='App'>
         <Header />
         <div className='inputForm'>
-          <AddNewTask tasks={tasks}/>
+          <AddNewTask 
+          tasks={tasks}
+          delTask={this.delTask}
+          addItem={this.addItem}
+          />
         </div>
       </div>
     )
