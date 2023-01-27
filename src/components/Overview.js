@@ -1,6 +1,12 @@
-const Overview = () => {
+const Overview = ({ tasks }) => {
   return (
-    <p>this is the Overview</p>
+    <div>
+      <ul>
+        {tasks.map((task) => (
+          <li key={task.id}>{task.text}</li>
+        ))}
+      </ul>
+    </div>
   )
 }
 
