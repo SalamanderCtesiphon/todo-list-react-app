@@ -4,7 +4,7 @@ const Overview = ({ tasks, deleteTask }) => {
     <div>
       <ul>
         {tasks.map((task) => (
-          <li className='formItem' key={task.id}>{task.text}<button 
+          <li className='formItem' key={task.id}>{tasks.indexOf(task) + 1}.{' '}{task.text}<button 
             onClick={() => deleteTask(task.id)}
           >  
           X</button></li>
