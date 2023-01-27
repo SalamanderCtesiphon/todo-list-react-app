@@ -51,13 +51,17 @@ li {
   border: 1px solid gray;
   border-radius: 10px;
   box-shadow: 8px 7px 5px rgba(47, 43, 43, 0.432);
-  min-height: 40px;
+  min-height: 50px;
   padding-left: 14px;
 }
 
 button {
   padding: 4px;
   max-height: 29px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
 }
 
 .btnBox {

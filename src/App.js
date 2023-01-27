@@ -24,6 +24,10 @@ const App = () => {
     setTasks([...tasks, newTask])
   }
 
+  const deleteTask = (id) => {
+    setTasks(tasks.filter((task) => task.id !== id))
+  }
+
   return (
     <div className="App">
       <h1>Task App</h1> 
@@ -37,7 +41,7 @@ const App = () => {
         />
         <button>Submit</button>
         </form> 
-      <Overview tasks={tasks} />    
+      <Overview tasks={tasks} deleteTask={deleteTask}/>    
     </div>
   )
 }
