@@ -5,6 +5,7 @@ import { useState } from 'react'
 const App = () => {
   const [text, setText] = useState('')
   const [tasks, setTasks] = useState([])
+  const [edit, setEdit] = useState(false)
 
   const onSubmit = (e) => {
     e.preventDefault()
@@ -13,9 +14,10 @@ const App = () => {
       alert('please add a task')
       return
     }
-    addTask({ text })
+    addTask({ text, edit })
     
     setText('')
+    setEdit(false)
   }
 
   const addTask = (task) => {
@@ -26,6 +28,11 @@ const App = () => {
 
   const deleteTask = (id) => {
     setTasks(tasks.filter((task) => task.id !== id))
+  }
+
+  const editTask = (id) => {
+    setTasks(tasks.map((task) => task.id === id ? {...task, edit:
+    !task.edit} : task))
   }
 
   return (
@@ -41,7 +48,11 @@ const App = () => {
         />
         <button>Submit</button>
         </form> 
-      <Overview tasks={tasks} deleteTask={deleteTask}/>    
+      <Overview 
+        tasks={tasks} 
+        deleteTask={deleteTask}
+        editTask={editTask}
+      />    
     </div>
   )
 }
