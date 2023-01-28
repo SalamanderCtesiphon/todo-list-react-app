@@ -4,6 +4,9 @@ const Overview = ({ tasks, deleteTask, todoEditing , setEditingText, submitEdits
   return (
     <div>
       <ul>
+        { tasks.length === 0 &&
+          <li>No more tasks to do</li>
+        } 
         {tasks.map((task) => (
           <li className='formItem' key={task.id}>
               {tasks.indexOf(task) + 1}.{' '}
@@ -13,7 +16,7 @@ const Overview = ({ tasks, deleteTask, todoEditing , setEditingText, submitEdits
                   onChange= {(e) => setEditingText(e.target.value)}
                 />
               ) : (
-                <div>{task.text}</div>
+                <div className="textBox">{task.text}</div>
               )}
               <div className="btnBox">
                 {task.id === todoEditing ? (
