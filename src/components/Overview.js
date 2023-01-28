@@ -1,5 +1,5 @@
 
-const Overview = ({ tasks, deleteTask, editTask, setEditText, text, edit, submitEdits }) => {
+const Overview = ({ tasks, deleteTask, todoEditing , setEditingText, submitEdits, setTodoEditing }) => {
   
   return (
     <div>
@@ -7,19 +7,19 @@ const Overview = ({ tasks, deleteTask, editTask, setEditText, text, edit, submit
         {tasks.map((task) => (
           <li className='formItem' key={task.id}>
               {tasks.indexOf(task) + 1}.{' '}
-              {task.id === editTask ? (
+              {task.id === todoEditing ? (
                 <input
                   type='text'
-                  onChange= {(e) => setEditText(e.target.value)}
+                  onChange= {(e) => setEditingText(e.target.value)}
                 />
               ) : (
                 <div>{task.text}</div>
               )}
               <div className="btnBox">
-                {task.id = edit ? (
+                {task.id === todoEditing ? (
                   <button onClick={() => submitEdits(task.id)}>Submit Edits</button>
                 ) : (
-                  <button onClick={() => setEditText(task.id)}>Edit</button>
+                  <button onClick={() => setTodoEditing(task.id)}>Edit</button>
                 )}
                 <button 
                   onClick={() => deleteTask(task.id)}

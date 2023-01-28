@@ -5,8 +5,8 @@ import { useState } from 'react'
 const App = () => {
   const [text, setText] = useState('')
   const [tasks, setTasks] = useState([])
-  const [edit, setEdit] = useState(null)
-  const [editText, setEditText] = useState('')
+  const [todoEditing, setTodoEditing] = useState(null)
+  const [editingText, setEditingText] = useState('')
 
   const onSubmit = (e) => {
     e.preventDefault()
@@ -15,10 +15,10 @@ const App = () => {
       alert('please add a task')
       return
     }
-    addTask({ text, edit })
+    addTask({ text, todoEditing })
     
     setText('')
-    setEdit(false)
+    setTodoEditing(null)
   }
 
   const addTask = (task) => {
@@ -31,27 +31,17 @@ const App = () => {
     setTasks(tasks.filter((task) => task.id !== id))
   }
 
-  const editTask = (id) => {
+  const submitEdits = (id) => {
     const updatedTasks = [...tasks].map((task) => {
       if (task.id === id) {
-        task.text = editText;
+        task.text = editingText;
       } 
       return task;
     });
     setTasks(updatedTasks);
-    setEdit(null);
+    setTodoEditing(null);
   }
 
-  const submitEdits = (id) => {
-    const updatedTasks = [...tasks].map((task) => {
-      if (task.id === id) {
-        task.text = editText;
-      }
-      return task;
-    });
-    setTasks(updatedTasks);
-    setEditText(null);
-  }
 
   return (
     <div className="App">
@@ -68,12 +58,11 @@ const App = () => {
         </form> 
       <Overview 
         tasks={tasks} 
-        text={text}
-        edit={edit}
         deleteTask={deleteTask}
-        editTask={editTask}
-        setEditText={setEditText}
+        setEditingText={setEditingText}
         submitEdits={submitEdits}
+        todoEditing={todoEditing}
+        setTodoEditing={setTodoEditing}
       />    
     </div>
   )
